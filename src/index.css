@@ -1,0 +1,177 @@
+:root {
+  --paper: #F6F1E7;
+  --paper-deep: #EFE6D6;
+  --card: #FFFFFF;
+
+  --ink: #1F3733;
+  --ink-soft: #4C635E;
+  --ink-faint: #7C8F8A;
+
+  --sage: #8CA592;
+  --sage-deep: #6B8779;
+
+  --coral: #E2907F;
+  --coral-deep: #CE7867;
+
+  --line: rgba(31, 55, 51, 0.14);
+
+  --radius: 22px;
+
+  --shadow: 0 20px 50px -25px rgba(31, 55, 51, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Fraunces', serif;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 6vw;
+}
+
+.section {
+  padding: 110px 0;
+  position: relative;
+}
+
+.section-tight {
+  padding: 70px 0;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 0 0 18px 0;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: var(--sage-deep);
+  opacity: 0.7;
+}
+
+.eyebrow.center {
+  justify-content: center;
+}
+
+.eyebrow.center::before {
+  display: none;
+}
+
+.section-title {
+  font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.15;
+  max-width: 16ch;
+  color: var(--ink);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+
+  padding: 15px 30px;
+
+  border: none;
+  border-radius: 999px;
+
+  font-size: 14.5px;
+  font-family: inherit;
+
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--sage-deep);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  color: var(--ink);
+  text-decoration: none;
+
+  font-size: 14.5px;
+  letter-spacing: 0.02em;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 3px;
+
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  transition:
+    border-color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink);
+  gap: 12px;
+}
+
+.btn-ghost svg {
+  width: 14px;
+  height: 14px;
+}
