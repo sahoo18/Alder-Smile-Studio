@@ -11,7 +11,7 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
-      <a href="#faq" style={styles.cta}>Book a Visit</a>
+      <div style={styles.actions}><a href="/book" style={styles.cta}>Book a Visit</a><a href="/login" style={styles.login}>Admin Login</a></div>
     </nav>
   )
 }
@@ -44,6 +44,8 @@ const styles = {
     textDecoration: 'none',
     fontSize: 14.5,
   },
+  actions: { display: 'flex', gap: 10, alignItems: 'center' },
+  login: { background: 'var(--ink)', color: 'var(--paper)', padding: '10px 18px', borderRadius: 999, fontSize: 13.5, textDecoration: 'none', whiteSpace: 'nowrap' },
   cta: {
     border: '1px solid var(--ink)',
     color: 'var(--ink)',

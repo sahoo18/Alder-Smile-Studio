@@ -4,7 +4,7 @@ export default function CTABanner() {
       <div style={styles.overlay} />
       <div style={styles.content}>
         <h2 style={styles.title}>Modern dentistry, human pace.</h2>
-        <a href="#faq" className="btn-primary" style={styles.btn}>Book Appointment</a>
+        <a href="/book" className="btn-primary" style={styles.btn}>Book Appointment</a>
       </div>
     </section>
   )

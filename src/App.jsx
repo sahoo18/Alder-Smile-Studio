@@ -1,29 +1,36 @@
-import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import AboutHighlight from './components/AboutHighlight.jsx'
-import FeaturedTreatments from './components/FeaturedTreatments.jsx'
-import WhyAlder from './components/WhyAlder.jsx'
-import Stats from './components/Stats.jsx'
-import CTABanner from './components/CTABanner.jsx'
-import Gallery from './components/Gallery.jsx'
-import Blog from './components/Blog.jsx'
-import FAQ from './components/FAQ.jsx'
-import Footer from './components/Footer.jsx'
+import { useEffect, useState } from 'react'
+import Home from './pages/Home.jsx'
+import Login from './pages/Login.jsx'
+import Admin from './pages/Admin.jsx'
+import Booking from './pages/Booking.jsx'
+
+function getPath() {
+  return window.location.pathname || '/'
+}
 
 export default function App() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <AboutHighlight />
-      <FeaturedTreatments />
-      <WhyAlder />
-      <Stats />
-      <CTABanner />
-      <Gallery />
-      <Blog />
-      <FAQ />
-      <Footer />
-    </>
-  )
+  const [path, setPath] = useState(getPath())
+
+  const navigate = (to) => {
+    window.history.pushState({}, '', to)
+    setPath(to)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    const handlePop = () => setPath(getPath())
+    window.addEventListener('popstate', handlePop)
+    return () => window.removeEventListener('popstate', handlePop)
+  }, [])
+
+  if (path === '/login') return <Login navigate={navigate} />
+  if (path === '/book') return <Booking navigate={navigate} />
+
+  if (path.startsWith('/admin')) {
+    if (localStorage.getItem('alderAdmin') !== 'true') return <Login navigate={navigate} />
+    const page = path.split('/')[2] || 'dashboard'
+    return <Admin page={page} navigate={navigate} />
+  }
+
+  return <Home />
 }

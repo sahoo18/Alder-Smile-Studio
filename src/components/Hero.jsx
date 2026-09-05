@@ -28,7 +28,7 @@ export default function Hero() {
           like a waiting room. Check-ups you don't dread — that's really the whole idea.
         </p>
         <div style={styles.ctaRow}>
-          <a href="#faq" className="btn-primary">Book a Visit</a>
+          <a href="/book" className="btn-primary">Book a Visit</a>
           <a href="#about" className="btn-ghost">
             See our approach
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
